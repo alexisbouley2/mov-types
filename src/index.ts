@@ -4,3 +4,4 @@ export * from "./models/user";
 export * from "./models/event";
 export * from "./models/media";
 export * from "./models/message";
+export * from "./models/video";
