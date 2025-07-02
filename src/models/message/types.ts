@@ -18,6 +18,15 @@ export const MessageSenderSchema = z.object({
   profileThumbnailUrl: z.string().nullable(),
 });
 
+export const MessageDetailsSchema = z.object({
+  id: z.string().uuid(),
+  content: z.string(),
+  createdAt: z.date(),
+  type: z.string(),
+  sender: MessageSenderSchema,
+});
+
 // Inferred types from schemas
 export type Message = z.infer<typeof MessageSchema>;
 export type MessageSender = z.infer<typeof MessageSenderSchema>;
+export type MessageDetails = z.infer<typeof MessageDetailsSchema>;

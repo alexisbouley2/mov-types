@@ -1,14 +1,5 @@
 import { z } from "zod";
-import { MessageSenderSchema } from "./types";
-
-// Message details schema (with sender info)
-export const MessageDetailsSchema = z.object({
-  id: z.string().uuid(),
-  content: z.string(),
-  createdAt: z.date(),
-  type: z.string(),
-  sender: MessageSenderSchema,
-});
+import { MessageDetailsSchema, MessageSenderSchema } from "./types";
 
 // Event messages response schema
 export const EventMessagesResponseSchema = z.object({
@@ -43,7 +34,6 @@ export const SendMessageResponseSchema = MessageDetailsSchema;
 // INFERRED TYPES
 // ============================================================================
 
-export type MessageDetails = z.infer<typeof MessageDetailsSchema>;
 export type EventMessagesResponse = z.infer<typeof EventMessagesResponseSchema>;
 export type MessagePreviewResponse = z.infer<
   typeof MessagePreviewResponseSchema
