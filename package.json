@@ -1,14 +1,13 @@
 {
   "name": "@movapp/types",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "Shared types for MOV backend and mobile",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "clean": "rm -rf dist",
-    "publish": "npm publish"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "zod": "^3.22.0"
