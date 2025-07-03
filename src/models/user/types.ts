@@ -9,7 +9,7 @@ export const UserSchema = z.object({
   profileThumbnailPath: z.string().nullable(),
   profileImageUrl: z.string().nullable(),
   profileThumbnailUrl: z.string().nullable(),
-  isDeleted: z.boolean().default(false),
+  isDeleted: z.boolean(),
   deletedAt: z.date().nullable(),
 });
 

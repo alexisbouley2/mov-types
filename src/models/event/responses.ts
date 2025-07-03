@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { EventForListSchema } from "./types";
+import { EventForListSchema, ParticipantSchema } from "./types";
 
 // Categorized events response schema
 export const CategorizedEventsResponseSchema = z.object({
@@ -10,18 +10,7 @@ export const CategorizedEventsResponseSchema = z.object({
 
 // Event participants response schema
 export const EventParticipantsResponseSchema = z.object({
-  participants: z.array(
-    z.object({
-      id: z.string().uuid(),
-      joinedAt: z.date(),
-      user: z.object({
-        id: z.string().uuid(),
-        username: z.string(),
-        profileThumbnailPath: z.string().nullable(),
-        profileThumbnailUrl: z.string().nullable(),
-      }),
-    })
-  ),
+  participants: z.array(ParticipantSchema),
   hasMore: z.boolean(),
   page: z.number(),
   total: z.number(),

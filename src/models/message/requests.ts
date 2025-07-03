@@ -7,7 +7,7 @@ import { z } from "zod";
 // Send Message request schema
 export const SendMessageRequestSchema = z.object({
   content: z.string().min(1, "Message content is required"),
-  type: z.string().optional().default("text"),
+  type: z.string().optional(),
 });
 
 // ============================================================================

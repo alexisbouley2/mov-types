@@ -15,6 +15,18 @@ export const EventSchema = z.object({
   adminId: z.string().uuid(),
 });
 
+// Participant schema - represents a participant in an event
+export const ParticipantSchema = z.object({
+  id: z.string().uuid(),
+  joinedAt: z.date(),
+  user: z.object({
+    id: z.string().uuid(),
+    username: z.string(),
+    profileThumbnailPath: z.string().nullable(),
+    profileThumbnailUrl: z.string().nullable(),
+  }),
+});
+
 // Event with admin, participants and videos schema
 export const EventWithDetailsSchema = EventSchema.extend({
   admin: z.object({
@@ -23,18 +35,7 @@ export const EventWithDetailsSchema = EventSchema.extend({
     profileThumbnailPath: z.string().nullable(),
     profileThumbnailUrl: z.string().nullable(),
   }),
-  participants: z.array(
-    z.object({
-      id: z.string().uuid(),
-      joinedAt: z.date(),
-      user: z.object({
-        id: z.string().uuid(),
-        username: z.string(),
-        profileThumbnailPath: z.string().nullable(),
-        profileThumbnailUrl: z.string().nullable(),
-      }),
-    })
-  ),
+  participants: z.array(ParticipantSchema),
   videos: z.array(
     z.object({
       id: z.string().uuid(),
@@ -62,18 +63,7 @@ export const EventForListSchema = EventSchema.extend({
     profileThumbnailPath: z.string().nullable(),
     profileThumbnailUrl: z.string().nullable(),
   }),
-  participants: z.array(
-    z.object({
-      id: z.string().uuid(),
-      joinedAt: z.date(),
-      user: z.object({
-        id: z.string().uuid(),
-        username: z.string(),
-        profileThumbnailPath: z.string().nullable(),
-        profileThumbnailUrl: z.string().nullable(),
-      }),
-    })
-  ),
+  participants: z.array(ParticipantSchema),
   _count: z.object({
     videos: z.number(),
   }),
@@ -83,3 +73,4 @@ export const EventForListSchema = EventSchema.extend({
 export type Event = z.infer<typeof EventSchema>;
 export type EventWithDetails = z.infer<typeof EventWithDetailsSchema>;
 export type EventForList = z.infer<typeof EventForListSchema>;
+export type Participant = z.infer<typeof ParticipantSchema>;
