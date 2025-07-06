@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { MessageDetailsSchema, MessageSenderSchema } from "./types";
-import { dateSchema } from "../../utils/date";
 
 // Event messages response schema
 export const EventMessagesResponseSchema = z.object({
@@ -22,7 +21,7 @@ export const MessagePreviewResponseSchema = z.object({
     .object({
       content: z.string(),
       sender: MessageSenderSchema,
-      createdAt: dateSchema,
+      createdAt: z.coerce.date(),
       type: z.string(),
     })
     .nullable(),

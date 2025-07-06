@@ -25,6 +25,11 @@ export const UpdateEventResponseSchema = z.object({
   message: z.string(),
 });
 
+// Delete Event response schema
+export const DeleteEventResponseSchema = z.object({
+  message: z.string(),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -36,3 +41,4 @@ export type EventParticipantsResponse = z.infer<
   typeof EventParticipantsResponseSchema
 >;
 export type UpdateEventResponse = z.infer<typeof UpdateEventResponseSchema>;
+export type DeleteEventResponse = z.infer<typeof DeleteEventResponseSchema>;

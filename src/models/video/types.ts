@@ -1,12 +1,11 @@
 import { z } from "zod";
-import { dateSchema } from "../../utils/date";
 
 // Base Video schema - represents the complete video entity
 export const VideoSchema = z.object({
   id: z.string().uuid(),
   videoPath: z.string(),
   thumbnailPath: z.string(),
-  createdAt: dateSchema,
+  createdAt: z.coerce.date(),
   userId: z.string().uuid(),
   status: z.string(),
 });
@@ -18,7 +17,7 @@ export const VideoWithUrlsSchema = z.object({
   thumbnailPath: z.string(),
   videoUrl: z.string().url(),
   thumbnailUrl: z.string().url(),
-  createdAt: dateSchema,
+  createdAt: z.coerce.date(),
   user: z.object({
     id: z.string().uuid(),
     username: z.string(),
@@ -32,7 +31,7 @@ export const VideoWithUserSchema = z.object({
   id: z.string().uuid(),
   videoPath: z.string(),
   thumbnailPath: z.string(),
-  createdAt: dateSchema,
+  createdAt: z.coerce.date(),
   userId: z.string().uuid(),
   status: z.string(),
   user: z.object({

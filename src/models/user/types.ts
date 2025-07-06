@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { dateSchema } from "../../utils/date";
 
 // Base User schema - represents the complete user entity
 export const UserSchema = z.object({
@@ -11,7 +10,7 @@ export const UserSchema = z.object({
   profileImageUrl: z.string().nullable(),
   profileThumbnailUrl: z.string().nullable(),
   isDeleted: z.boolean(),
-  deletedAt: dateSchema.nullable(),
+  deletedAt: z.coerce.date().nullable(),
 });
 
 // Inferred types from schemas

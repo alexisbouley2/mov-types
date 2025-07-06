@@ -1,11 +1,10 @@
 import { z } from "zod";
-import { dateSchema } from "../../utils/date";
 
 // Base Message schema - represents the complete message entity
 export const MessageSchema = z.object({
   id: z.string().uuid(),
   content: z.string(),
-  createdAt: dateSchema,
+  createdAt: z.coerce.date(),
   type: z.string(),
   eventId: z.string().uuid(),
   senderId: z.string().uuid(),
@@ -22,7 +21,7 @@ export const MessageSenderSchema = z.object({
 export const MessageDetailsSchema = z.object({
   id: z.string().uuid(),
   content: z.string(),
-  createdAt: dateSchema,
+  createdAt: z.coerce.date(),
   type: z.string(),
   sender: MessageSenderSchema,
 });

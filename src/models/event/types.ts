@@ -1,13 +1,12 @@
 import { z } from "zod";
-import { dateSchema } from "../../utils/date";
 
 // Base Event schema - represents the complete event entity
 export const EventSchema = z.object({
   id: z.string().uuid(),
   name: z.string().nullable(),
   information: z.string().nullable(),
-  date: dateSchema,
-  createdAt: dateSchema,
+  date: z.coerce.date(),
+  createdAt: z.coerce.date(),
   location: z.string().nullable(),
   coverImagePath: z.string().nullable(),
   coverThumbnailPath: z.string().nullable(),
@@ -19,7 +18,7 @@ export const EventSchema = z.object({
 // Participant schema - represents a participant in an event
 export const ParticipantSchema = z.object({
   id: z.string().uuid(),
-  joinedAt: dateSchema,
+  joinedAt: z.coerce.date(),
   user: z.object({
     id: z.string().uuid(),
     username: z.string(),
@@ -40,12 +39,12 @@ export const EventWithDetailsSchema = EventSchema.extend({
   videos: z.array(
     z.object({
       id: z.string().uuid(),
-      addedAt: dateSchema,
+      addedAt: z.coerce.date(),
       video: z.object({
         id: z.string().uuid(),
         videoPath: z.string(),
         thumbnailPath: z.string(),
-        createdAt: dateSchema,
+        createdAt: z.coerce.date(),
         status: z.string(),
         user: z.object({
           id: z.string().uuid(),
