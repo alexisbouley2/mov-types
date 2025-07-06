@@ -42,6 +42,12 @@ export const DeleteVideoResponseSchema = z.object({
   message: z.string(),
 });
 
+// Report Video Response schema
+export const ReportVideoResponseSchema = z.object({
+  success: z.boolean(),
+  message: z.string(),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -52,3 +58,4 @@ export type AssociateEventsResponse = z.infer<
   typeof AssociateEventsResponseSchema
 >;
 export type DeleteVideoResponse = z.infer<typeof DeleteVideoResponseSchema>;
+export type ReportVideoResponse = z.infer<typeof ReportVideoResponseSchema>;

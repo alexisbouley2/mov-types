@@ -26,6 +26,13 @@ export const DeleteVideoRequestSchema = z.object({
   userId: z.string().uuid("userId must be a valid UUID"),
 });
 
+// Report Video request schema
+export const ReportVideoRequestSchema = z.object({
+  videoId: z.string().uuid("videoId must be a valid UUID"),
+  userId: z.string().uuid("userId must be a valid UUID"),
+  eventId: z.string().uuid("eventId must be a valid UUID"),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -35,3 +42,4 @@ export type AssociateEventsRequest = z.infer<
   typeof AssociateEventsRequestSchema
 >;
 export type DeleteVideoRequest = z.infer<typeof DeleteVideoRequestSchema>;
+export type ReportVideoRequest = z.infer<typeof ReportVideoRequestSchema>;
