@@ -30,6 +30,17 @@ export const DeleteEventResponseSchema = z.object({
   message: z.string(),
 });
 
+// Generate invite response schema
+export const GenerateInviteResponseSchema = z.object({
+  token: z.string(),
+});
+
+// Validate invite response schema
+export const ValidateInviteResponseSchema = z.object({
+  valid: z.boolean(),
+  error: z.string().nullable(),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -42,3 +53,9 @@ export type EventParticipantsResponse = z.infer<
 >;
 export type UpdateEventResponse = z.infer<typeof UpdateEventResponseSchema>;
 export type DeleteEventResponse = z.infer<typeof DeleteEventResponseSchema>;
+export type GenerateInviteResponse = z.infer<
+  typeof GenerateInviteResponseSchema
+>;
+export type ValidateInviteResponse = z.infer<
+  typeof ValidateInviteResponseSchema
+>;

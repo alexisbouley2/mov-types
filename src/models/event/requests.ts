@@ -25,9 +25,21 @@ export const UpdateEventRequestSchema = z.object({
   coverThumbnailPath: z.string().optional(),
 });
 
+// Generate invite request schema
+export const GenerateInviteRequestSchema = z.object({
+  userId: z.string().uuid(),
+});
+
+// Validate invite request schema
+export const ValidateInviteRequestSchema = z.object({
+  token: z.string().min(1, "Token is required"),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
 
 export type CreateEventRequest = z.infer<typeof CreateEventRequestSchema>;
 export type UpdateEventRequest = z.infer<typeof UpdateEventRequestSchema>;
+export type GenerateInviteRequest = z.infer<typeof GenerateInviteRequestSchema>;
+export type ValidateInviteRequest = z.infer<typeof ValidateInviteRequestSchema>;
