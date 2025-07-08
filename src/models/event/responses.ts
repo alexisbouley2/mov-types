@@ -48,6 +48,11 @@ export const AcceptInviteResponseSchema = z.object({
   eventId: z.string().uuid().nullable(),
 });
 
+// Delete participant response schema
+export const DeleteParticipantResponseSchema = z.object({
+  message: z.string(),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -67,3 +72,6 @@ export type ValidateInviteResponse = z.infer<
   typeof ValidateInviteResponseSchema
 >;
 export type AcceptInviteResponse = z.infer<typeof AcceptInviteResponseSchema>;
+export type DeleteParticipantResponse = z.infer<
+  typeof DeleteParticipantResponseSchema
+>;
