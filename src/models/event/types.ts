@@ -19,6 +19,7 @@ export const EventSchema = z.object({
 export const ParticipantSchema = z.object({
   id: z.string().uuid(),
   joinedAt: z.coerce.date(),
+  confirmed: z.boolean(),
   user: z.object({
     id: z.string().uuid(),
     username: z.string(),
