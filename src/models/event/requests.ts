@@ -35,6 +35,12 @@ export const ValidateInviteRequestSchema = z.object({
   token: z.string().min(1, "Token is required"),
 });
 
+// Accept invite request schema
+export const AcceptInviteRequestSchema = z.object({
+  token: z.string().min(1, "Token is required"),
+  userId: z.string().uuid("userId must be a valid UUID"),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -43,3 +49,4 @@ export type CreateEventRequest = z.infer<typeof CreateEventRequestSchema>;
 export type UpdateEventRequest = z.infer<typeof UpdateEventRequestSchema>;
 export type GenerateInviteRequest = z.infer<typeof GenerateInviteRequestSchema>;
 export type ValidateInviteRequest = z.infer<typeof ValidateInviteRequestSchema>;
+export type AcceptInviteRequest = z.infer<typeof AcceptInviteRequestSchema>;

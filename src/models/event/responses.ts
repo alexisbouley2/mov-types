@@ -41,6 +41,13 @@ export const ValidateInviteResponseSchema = z.object({
   error: z.string().nullable(),
 });
 
+// Accept invite response schema
+export const AcceptInviteResponseSchema = z.object({
+  success: z.boolean(),
+  message: z.string(),
+  eventId: z.string().uuid().nullable(),
+});
+
 // ============================================================================
 // INFERRED TYPES
 // ============================================================================
@@ -59,3 +66,4 @@ export type GenerateInviteResponse = z.infer<
 export type ValidateInviteResponse = z.infer<
   typeof ValidateInviteResponseSchema
 >;
+export type AcceptInviteResponse = z.infer<typeof AcceptInviteResponseSchema>;
