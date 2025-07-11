@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserSchema } from "./types";
+import { UserSchema, ContactSchema } from "./types";
 
 // Update User response schema
 export const UpdateUserResponseSchema = z.object({
@@ -14,6 +14,12 @@ export const DeleteUserResponseSchema = z.object({
   message: z.string(),
 });
 
-// Inferred types from schemas
+export const CheckContactsResponseSchema = z.object({
+  success: z.boolean(),
+  contacts: z.array(ContactSchema),
+  message: z.string(),
+});
+
 export type UpdateUserResponse = z.infer<typeof UpdateUserResponseSchema>;
 export type DeleteUserResponse = z.infer<typeof DeleteUserResponseSchema>;
+export type CheckContactsResponse = z.infer<typeof CheckContactsResponseSchema>;
