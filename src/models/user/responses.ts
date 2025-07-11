@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserSchema, ContactSchema } from "./types";
+import { UserSchema, UserContactSchema } from "./types";
 
 // Update User response schema
 export const UpdateUserResponseSchema = z.object({
@@ -16,7 +16,7 @@ export const DeleteUserResponseSchema = z.object({
 
 export const CheckContactsResponseSchema = z.object({
   success: z.boolean(),
-  contacts: z.array(ContactSchema),
+  contacts: z.array(UserContactSchema),
   message: z.string(),
 });
 

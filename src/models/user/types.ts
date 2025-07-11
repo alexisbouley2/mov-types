@@ -14,13 +14,15 @@ export const UserSchema = z.object({
   deletedAt: z.coerce.date().nullable(),
 });
 
-export const ContactSchema = z.object({
-  phone: z.string(),
+export const UserContactSchema = z.object({
   id: z.string().uuid(),
+  phone: z.string(),
+  username: z.string(),
+  profileThumbnailPath: z.string().nullable(),
   profileThumbnailUrl: z.string().nullable(),
   isParticipant: z.boolean(),
 });
 
 // Inferred types from schemas
 export type User = z.infer<typeof UserSchema>;
-export type Contact = z.infer<typeof ContactSchema>;
+export type UserContact = z.infer<typeof UserContactSchema>;
