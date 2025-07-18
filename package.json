@@ -1,6 +1,6 @@
 {
   "name": "@movapp/types",
-  "version": "1.0.38",
+  "version": "1.0.45",
   "description": "Shared types for MOV backend and mobile",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

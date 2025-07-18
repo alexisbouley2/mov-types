@@ -8,7 +8,7 @@ import { z } from "zod";
 export const CreateEventRequestSchema = z.object({
   name: z.string().min(1, "Event name is required"),
   information: z.string().optional(),
-  date: z.date(),
+  date: z.coerce.date(),
   location: z.string().optional(),
   adminId: z.string().uuid(),
   coverImagePath: z.string().optional(),
@@ -19,7 +19,7 @@ export const CreateEventRequestSchema = z.object({
 export const UpdateEventRequestSchema = z.object({
   name: z.string().optional(),
   information: z.string().optional(),
-  date: z.date().optional(),
+  date: z.coerce.date().optional(),
   location: z.string().optional(),
   coverImagePath: z.string().optional(),
   coverThumbnailPath: z.string().optional(),
