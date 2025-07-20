@@ -7,7 +7,6 @@ export const EventSchema = z.object({
   information: z.string().nullable(),
   date: z.coerce.date(),
   createdAt: z.coerce.date(),
-  location: z.string().nullable(),
   coverImagePath: z.string().nullable(),
   coverThumbnailPath: z.string().nullable(),
   coverImageUrl: z.string().nullable(),
