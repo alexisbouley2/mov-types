@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { MessageSchema } from "../message/types";
 
 // Base Event schema - represents the complete event entity
 export const EventSchema = z.object({
@@ -29,12 +30,6 @@ export const ParticipantSchema = z.object({
 
 // Event with admin, participants and videos schema
 export const EventWithDetailsSchema = EventSchema.extend({
-  admin: z.object({
-    id: z.string().uuid(),
-    username: z.string(),
-    profileThumbnailPath: z.string().nullable(),
-    profileThumbnailUrl: z.string().nullable(),
-  }),
   participants: z.array(ParticipantSchema),
   videos: z.array(
     z.object({
@@ -53,6 +48,7 @@ export const EventWithDetailsSchema = EventSchema.extend({
       }),
     })
   ),
+  lastMessage: MessageSchema.nullable(),
 });
 
 // Event for user events list schema
