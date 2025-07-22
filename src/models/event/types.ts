@@ -52,6 +52,7 @@ export const EventWithDetailsSchema = EventSchema.extend({
   _count: z.object({
     participants: z.number(),
   }),
+  currentUserConfirmed: z.boolean(),
 });
 
 // Event for user events list schema
