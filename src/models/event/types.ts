@@ -49,6 +49,9 @@ export const EventWithDetailsSchema = EventSchema.extend({
     })
   ),
   lastMessage: MessageSchema.nullable(),
+  _count: z.object({
+    participants: z.number(),
+  }),
 });
 
 // Event for user events list schema
