@@ -11,8 +11,6 @@ src/
 │       ├── types.ts    # Database model schemas
 │       ├── requests.ts # API request schemas (create, update, etc.)
 │       └── responses.ts # API response schemas
-├── common/
-│   └── enums.ts        # Shared enum schemas
 └── utils/
     └── validation.ts   # Validation helper functions
 ```
