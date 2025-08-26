@@ -3,7 +3,7 @@ import { z } from "zod";
 // Base User schema - represents the complete user entity
 export const UserSchema = z.object({
   id: z.string().uuid(),
-  phone: z.string(),
+  phone: z.string().nullable(),
   countryCode: z.string(),
   username: z.string().min(1),
   profileImagePath: z.string().nullable(),
@@ -16,7 +16,7 @@ export const UserSchema = z.object({
 
 export const UserContactSchema = z.object({
   id: z.string().uuid(),
-  phone: z.string(),
+  phone: z.string().nullable(),
   username: z.string(),
   profileThumbnailPath: z.string().nullable(),
   profileThumbnailUrl: z.string().nullable(),

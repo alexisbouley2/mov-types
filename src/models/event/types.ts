@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { MessageSchema } from "@/models/message/types";
+import { MessageSchema } from "../message/types";
 
 // Base Event schema - represents the complete event entity
 export const EventSchema = z.object({
